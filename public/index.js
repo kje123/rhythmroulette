@@ -5,7 +5,8 @@
     window.addEventListener("load", init);
 
     function init() {
-        fetchLinks();
+        let randoButton = id("randomize");
+        randoButton.addEventListener("click", fetchLinks);
     }
 
     function fetchLinks() {
@@ -20,6 +21,8 @@
     function addVideo(links) {
         let linksArray = links.split("\n");
         let container = id("video-container");
+        // clear videos if user is rerandomizing
+        container.innerHTML = "";
         for(let i = 0; i < linksArray.length-1; i++) {
             let newVideo = gen("iframe");
             newVideo.classList.add("video");
