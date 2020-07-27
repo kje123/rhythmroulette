@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'serpentinebolditalic';
+    src: url('fonts/font-webfont.woff2') format('woff2'),
+         url('fonts/font-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #260700;
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    list-style-position: inside;
+}
+
+h1, h2, button {
+    font-family: 'serpentinebolditalic';
+}
+
+h1, h2 {
+    color: goldenrod;
+}
+
+h1 {
+    font-size: 75px;
+}
