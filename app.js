@@ -5,6 +5,7 @@
 const express = require("express");
 const sqlite3 = require("sqlite3");
 const sqlite = require("sqlite");
+const ytdl = require("ytdl-core");
 const app = express();
 
 app.use(express.static("public"));
@@ -19,6 +20,14 @@ app.get("/links", async function(req, res) {
         links += curr + "\n";
     }
     res.type("text").send(links);
+})
+
+app.get("/download", async function(req, res) {
+    let url = req.query["link"];
+    let downloadName = url.substring(29, 40);
+    res.header('Content-Disposition', 'attachment; filename=' + downloadName + '.mp3');
+    ytdl(url, {format: "mp3"})
+        .pipe(res);
 })
 
 /**

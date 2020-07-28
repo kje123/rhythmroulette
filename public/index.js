@@ -32,13 +32,25 @@
         let container = id("video-container");
         container.innerHTML = "";
         for(let i = 0; i < linksArray.length-1; i++) {
+            let vidContainer = gen("div");
             let newVideo = gen("iframe");
-            newVideo.classList.add("video");
+            let dwnldButton = gen("button");
+            vidContainer.classList.add("video");
             newVideo.width = "420";
             newVideo.height = "315";
             newVideo.src = linksArray[i];
-            container.appendChild(newVideo);
+            dwnldButton.textContent = "Download";
+            dwnldButton.addEventListener("click", () => { getDownload(linksArray[i]) });
+            vidContainer.appendChild(newVideo);
+            vidContainer.appendChild(dwnldButton);
+            container.appendChild(vidContainer);
         }
+    }
+
+    function getDownload(link) {
+        console.log(link);
+        let url = "/download?link=" + link;
+        window.location.href = url;
     }
 
     function videoHandler() {

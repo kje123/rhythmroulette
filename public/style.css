@@ -23,7 +23,7 @@ body {
 }
 
 body, button {
-    background-color: #260700;
+    background-color: #1A0900;
 }
 
 h1, h2, button {
@@ -47,6 +47,10 @@ h1 {
 .video {
     margin-left: 15px;
     margin-right: 15px;
+}
+
+iframe {
+    margin-bottom: 15px;
 }
 
 button {
