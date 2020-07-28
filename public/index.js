@@ -11,6 +11,7 @@
 
     function fetchLinks() {
         let url = "/links"
+        loadingCircle();
         fetch(url)
             .then(checkStatus)
             .then(resp => resp.text())
@@ -18,10 +19,17 @@
             .catch(videoHandler);
     }
 
+    function loadingCircle(links) {
+        let circle = gen("div");
+        let container = id("video-container");
+        container.innerHTML = "";
+        circle.classList.add("lds-dual-ring");
+        container.appendChild(circle);
+    }
+
     function addVideo(links) {
         let linksArray = links.split("\n");
         let container = id("video-container");
-        // clear videos if user is rerandomizing
         container.innerHTML = "";
         for(let i = 0; i < linksArray.length-1; i++) {
             let newVideo = gen("iframe");
@@ -34,7 +42,7 @@
     }
 
     function videoHandler() {
-
+        console.log("something went wrong");
     }
 
     /**

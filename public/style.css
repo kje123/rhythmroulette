@@ -6,19 +6,31 @@
     font-style: normal;
 }
 
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 body {
-    background-color: #260700;
     color: whitesmoke;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
     list-style-position: inside;
 }
 
+body, button {
+    background-color: #260700;
+}
+
 h1, h2, button {
     font-family: 'serpentinebolditalic';
 }
 
-h1, h2 {
+h1, h2, button {
     color: goldenrod;
 }
 
@@ -35,4 +47,27 @@ h1 {
 .video {
     margin-left: 15px;
     margin-right: 15px;
+}
+
+button {
+    font-size: 30px;
+    border-radius: 5px;
+    border-color: goldenrod;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid goldenrod;
+    border-color: goldenrod goldenrod goldenrod transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
 }
